@@ -9,6 +9,9 @@ import java.awt.event.ActionListener;
  */
 public class View extends JFrame implements ActionListener {
     private Controller controller;
+    private JTabbedPane tabbedPane = new JTabbedPane(); //panel with two tabs
+    private JTextPane htmlTextPane = new JTextPane(); //component for visual html redacting
+    private JEditorPane plainTextPane = new JEditorPane(); //component for text html redacting 
 
     public Controller getController() {
         return controller;
