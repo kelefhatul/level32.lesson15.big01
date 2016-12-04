@@ -8,8 +8,13 @@ import java.io.File;
  */
 public class Controller {
     private View view;
-    private HTMLDocument document;
     private File currentFile;
+    private HTMLDocument document;
+
+    //14.2
+    public HTMLDocument getDocument() {
+        return document;
+    }
 
     public Controller(View view) {
         this.view = view;
