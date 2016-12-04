@@ -46,6 +46,32 @@ public class View extends JFrame implements ActionListener {
     }
     //4.1 start
     public void initMenuBar(){
+        //9.1.1 + 9.1.2
+        JMenuBar jMenuBar = new JMenuBar();
+
+        MenuHelper.initFileMenu(this,jMenuBar);
+        MenuHelper.initEditMenu(this,jMenuBar);
+        MenuHelper.initStyleMenu(this,jMenuBar);
+        MenuHelper.initAlignMenu(this,jMenuBar);
+        MenuHelper.initColorMenu(this,jMenuBar);
+        MenuHelper.initFontMenu(this,jMenuBar);
+        MenuHelper.initHelpMenu(this,jMenuBar);
+        //9.1.3
+        getContentPane().add(jMenuBar,BorderLayout.NORTH);
+    }
+    //9.2
+    public View() {
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (ClassNotFoundException e) {
+            ExceptionHandler.log(e);
+        } catch (InstantiationException e) {
+            ExceptionHandler.log(e);
+        } catch (IllegalAccessException e) {
+            ExceptionHandler.log(e);
+        } catch (UnsupportedLookAndFeelException e) {
+            ExceptionHandler.log(e);
+        }
 
     }
 
