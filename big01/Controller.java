@@ -6,6 +6,7 @@ import javax.swing.text.html.HTMLEditorKit;
 import java.io.File;
 import java.io.IOException;
 import java.io.StringReader;
+import java.io.StringWriter;
 
 /**
  * Created by root on 11/30/2016.
@@ -60,6 +61,20 @@ public class Controller {
             } catch (BadLocationException e) {
                 ExceptionHandler.log(e);
             }
+    }
+
+    //17
+    public String getPlainText(){
+        StringWriter stringWriter = new StringWriter();
+        HTMLEditorKit htmlEditorKit = new HTMLEditorKit();
+        try {
+            htmlEditorKit.write(stringWriter,document,0,document.getLength());
+        } catch (IOException e) {
+            ExceptionHandler.log(e);
+        } catch (BadLocationException e) {
+            ExceptionHandler.log(e);
+        }
+        return stringWriter.toString();
     }
 
     public static void main(String[] args) {
