@@ -1,8 +1,11 @@
 package com.javarush.test.level32.lesson15.big01;
 
+import javax.swing.text.BadLocationException;
 import javax.swing.text.html.HTMLDocument;
 import javax.swing.text.html.HTMLEditorKit;
 import java.io.File;
+import java.io.IOException;
+import java.io.StringReader;
 
 /**
  * Created by root on 11/30/2016.
@@ -42,6 +45,21 @@ public class Controller {
         //15.4
         view.update();
 
+    }
+
+    //16
+    public void setPlainText(String text){
+        resetDocument(); //16.1
+        StringReader stringReader = new StringReader(text); //16.2
+        //16.3
+        HTMLEditorKit htmlEditorKit = new HTMLEditorKit();
+            try {
+                htmlEditorKit.read(stringReader, document, 0);
+            } catch (IOException e) {
+                ExceptionHandler.log(e);
+            } catch (BadLocationException e) {
+                ExceptionHandler.log(e);
+            }
     }
 
     public static void main(String[] args) {
