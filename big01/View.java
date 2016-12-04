@@ -35,6 +35,16 @@ public class View extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        //19
+        String tmp = e.getActionCommand();
+        switch (tmp){
+            case "Новый" : controller.createNewDocument(); break;
+            case "Открыть" : controller.openDocument(); break;
+            case "Сохранить" : controller.saveDocument(); break;
+            case "Сохранить как..." : controller.saveDocumentAs(); break;
+            case "Выход" : controller.exit(); break;
+            case "О программе" : showAbout(); break;
+        }
 
     }
 
