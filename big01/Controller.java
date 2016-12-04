@@ -1,6 +1,7 @@
 package com.javarush.test.level32.lesson15.big01;
 
 import javax.swing.text.html.HTMLDocument;
+import javax.swing.text.html.HTMLEditorKit;
 import java.io.File;
 
 /**
@@ -28,6 +29,21 @@ public class Controller {
         System.exit(0);
     }
 
+    //15
+    public void resetDocument(){
+        //15.1
+        if (document != null){
+            document.removeUndoableEditListener(view.getUndoListener());
+        }
+        //15.2
+        document = (HTMLDocument) new HTMLEditorKit().createDefaultDocument();
+        //15.3
+        document.addUndoableEditListener(view.getUndoListener());
+        //15.4
+        view.update();
+
+    }
+
     public static void main(String[] args) {
         //2.2.1
         View newView = new View();
@@ -39,8 +55,7 @@ public class Controller {
         newView.init();
         //2.2.5
         newController.init();
-
-
-
     }
+
+
 }
